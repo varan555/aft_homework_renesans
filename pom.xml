@@ -17,8 +17,7 @@
         <selenium.java>3.141.59</selenium.java>
         <cucumber.java>5.6.0</cucumber.java>
         <cucumber.junit>5.6.0</cucumber.junit>
-        <allure.cucumber4>2.13.3</allure.cucumber4>
-        <allure.junit4> 2.13.2</allure.junit4>
+        <allure.cucumber5>2.13.3</allure.cucumber5>
         <surefire-provider>1.2.0</surefire-provider>
 
 
@@ -54,14 +53,8 @@
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-junit5</artifactId>
-            <version>${allure.junit4}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-cucumber4-jvm</artifactId>
-            <version>${allure.cucumber4}</version>
+            <artifactId>allure-cucumber5-jvm</artifactId>
+            <version>${allure.cucumber5}</version>
         </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
@@ -97,13 +90,8 @@
                     </includes>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                        -Dcucumber.options="--plugin io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"
                     </argLine>
-                    <properties>
-                        <property>
-                            <name>listener</name>
-                            <value>io.qameta.allure.junit5.AllureJunit5</value>
-                        </property>
-                    </properties>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
